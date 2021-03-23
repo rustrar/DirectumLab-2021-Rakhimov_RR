@@ -4,12 +4,29 @@ using System.IO;
 
 namespace Task_9
 {
-  class TextFileIterator
+  /// <summary>
+  /// Класс TextFileIterator"
+  /// </summary>
+  public class TextFileIterator
   {
+    /// <summary>
+    /// Путь до текстового файла
+    /// </summary>
     string filePath;
+
+    /// <summary>
+    /// Список со строками файла
+    /// </summary>
     List<string> allLines = new List<string>();
+
+    /// <summary>
+    /// 
+    /// </summary>
     List<FileString> fileStrings = new List<FileString>();
 
+    /// <summary>
+    /// Считать текстовый файл в список
+    /// </summary>
     public void ReadFileToList()
     {
       using (StreamReader reader = new StreamReader(this.filePath))
@@ -20,6 +37,11 @@ namespace Task_9
       }
     }
 
+    /// <summary>
+    /// Перебор списка со строками текстового файла
+    /// </summary>
+    /// <param name="separator">Разделитель</param>
+    /// <returns>Список с элементами типа FileString</returns>
     public List<FileString> Iterate(char separator)
     {
       foreach (string line in allLines)
@@ -34,6 +56,10 @@ namespace Task_9
       return fileStrings;
     }
 
+    /// <summary>
+    /// Конструкор класса
+    /// </summary>
+    /// <param name="filePath">Путь до файла</param>
     public TextFileIterator(string filePath)
     {
       this.filePath = filePath;

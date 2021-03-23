@@ -4,8 +4,18 @@ using System.Text;
 
 namespace Task_4._2
 {
-  class DataSetReader
+  /// <summary>
+  /// Класс для чтения DataSet
+  /// </summary>
+  public class DataSetReader
   {
+    /// <summary>
+    /// Вывести DataSet в одной строке
+    /// </summary>
+    /// <param name="dataSet">Набор данных</param>
+    /// <param name="rowSeparator">Разделитель записей</param>
+    /// <param name="columnSeparator">Разделитель колонок</param>
+    /// <returns>DataSet в одной строке</returns>
     public string ToString(DataSet dataSet, string rowSeparator, string columnSeparator)
     {
       StringBuilder strBuilder = new StringBuilder();

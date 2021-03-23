@@ -17,6 +17,10 @@ namespace Task_8
       LoadFromGzip("q2.rtf.gz1");
     }
 
+    /// <summary>
+    /// Загрузить данных из текстового файла, сжатого по методу GZIP, в RichTextBox
+    /// </summary>
+    /// <param name="filePath">Путь до файла GZIP</param>
     private void LoadFromGzip(string filePath)
     {
       TextRange doc = new TextRange(textBox.Document.ContentStart, textBox.Document.ContentEnd);

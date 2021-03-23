@@ -8,7 +8,7 @@ namespace Task_4._4
   /// Тип прав.
   /// </summary>
   [Flags, Serializable]
-  enum AccessRights : byte
+  public enum AccessRights : byte
   {
     /// <summary>
     /// Просмотр.
@@ -50,8 +50,15 @@ namespace Task_4._4
     AccessDenied = 64
   }
 
-  class AccessRightPrinter
+  /// <summary>
+  /// Класс для вывода разрешенных действий
+  /// </summary>
+  public class AccessRightPrinter
   {
+    /// <summary>
+    /// Распечатать перечень действий, разрешенных правами
+    /// </summary>
+    /// <param name="accessRight">Тип прав</param>
     public void PrintAllowedAction(AccessRights accessRight)
     {
       if (accessRight.HasFlag(AccessRights.AccessDenied))

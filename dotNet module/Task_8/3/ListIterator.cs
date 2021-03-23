@@ -2,8 +2,16 @@
 
 namespace Task_8._3
 {
-  class ListIterator<T>
+  /// <summary>
+  /// Класс "ListIterator"
+  /// </summary>
+  /// <typeparam name="T"></typeparam>
+  public class ListIterator<T>
   {
+    /// <summary>
+    /// Перебрать элементы списка
+    /// </summary>
+    /// <param name="dict">Список</param>
     public void Iterate(IEnumerable<T> collection)
     {
       foreach (T item in collection)

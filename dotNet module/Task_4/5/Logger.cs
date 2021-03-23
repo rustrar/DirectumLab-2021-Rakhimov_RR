@@ -6,7 +6,7 @@ namespace Task_4._5
   /// <summary>
   /// Логгер - класс для ведения логов.
   /// </summary>
-  class Logger : IDisposable
+  public class Logger : IDisposable
   {
     /// <summary>
     /// Файл логов.
@@ -18,6 +18,9 @@ namespace Task_4._5
     /// </summary>
     private StreamWriter logWriter;
 
+    /// <summary>
+    /// /Флаг, что объект был Disposed
+    /// </summary>
     private bool disposed;
 
     /// <summary>
@@ -26,21 +29,32 @@ namespace Task_4._5
     /// <param name="fileName">Имя файла логов.</param>
     public Logger(string fileName)
     {
-      logFile = new FileStream(fileName, FileMode.Append);
-      logWriter = new StreamWriter(logFile);
+      this.logFile = new FileStream(fileName, FileMode.Append);
+      this.logWriter = new StreamWriter(this.logFile);
     }
 
+    /// <summary>
+    /// Записать данные
+    /// </summary>
+    /// <param name="data">Данные</param>
     public void WriteString(string data)
     {
-      logWriter.WriteLine(data);
+      this.logWriter.WriteLine(data);
     }
 
+    /// <summary>
+    /// Вызвать Dispose
+    /// </summary>
     public void Dispose()
     {
       this.Dispose(true);
       GC.SuppressFinalize(this);
     }
 
+    /// <summary>
+    /// Освободить ресурсы
+    /// </summary>
+    /// <param name="disposing">Флаг, что нужно освободить управляемые ресурсы</param>
     private void Dispose(bool disposing)
     {
       if (!this.disposed)
@@ -48,7 +62,7 @@ namespace Task_4._5
         if (disposing)
         {
           Console.WriteLine("Закрытие StreamWriter");
-          logWriter.Close();
+          this.logWriter.Close();
         }
         this.disposed = true;
       }
@@ -59,8 +73,7 @@ namespace Task_4._5
     /// </summary>
     ~Logger()
     {
-      Dispose(false);
+      this.Dispose(false);
     }
   }
-
 }

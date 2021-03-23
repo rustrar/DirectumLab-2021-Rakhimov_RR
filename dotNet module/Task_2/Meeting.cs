@@ -2,14 +2,29 @@
 
 namespace Task_2
 {
-  class Meeting
+  /// <summary>
+  /// Класс "Встреча"
+  /// </summary>
+  public class Meeting
   {
+    /// <summary>
+    /// Дата начала встречи
+    /// </summary>
     public DateTime StartDate { get; set; }
+
+    /// <summary>
+    /// Дата окончания встречи
+    /// </summary>
     public DateTime EndDate { get; set; }
 
-    public TimeSpan Duration {
-      get {
-        return EndDate - StartDate;
+    /// <summary>
+    /// Продолжительность встречи
+    /// </summary>
+    public TimeSpan Duration 
+    {
+      get 
+      {
+        return this.EndDate - this.StartDate;
       }
     }
   }
